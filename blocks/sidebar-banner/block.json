@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "hub21-base/sidebar-banner",
+	"version": "1.0.0",
+	"title": "Sidebar Banner",
+	"category": "widgets",
+	"icon": "cover-image",
+	"description": "A banner with GIF background, color tint, frosted glass, and dynamic greeting.",
+	"supports": {
+		"html": false,
+		"multiple": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "Welcome to Hub 21, {first_name}!"
+		},
+		"gifUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"tintColor": {
+			"type": "string",
+			"default": "#5CE1E6"
+		},
+		"tintOpacity": {
+			"type": "number",
+			"default": 35
+		},
+		"bannerHeight": {
+			"type": "number",
+			"default": 100
+		}
+	},
+	"editorScript": "file:./editor.js",
+	"render": "file:./render.php",
+	"style": "file:./style.css"
+}

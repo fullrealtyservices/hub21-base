@@ -1,0 +1,13 @@
+{
+  "name": "hub21-base",
+  "version": "1.0.0",
+  "description": "Hub21 Base - Blocksy child theme with workspace portals and GreenShift integration",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* FRS Navigation styles */
+.frs-nav-link.active {
+  @apply text-white bg-white/10;
+}
+
+.frs-submenu {
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+}

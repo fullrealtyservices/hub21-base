@@ -1,0 +1,94 @@
+/*
+ * Accessibility Color Overrides
+ * Workspaces Directory Theme — assets/css/accessibility-overrides.css
+ *
+ * PURPOSE
+ * -------
+ * The brand cyans (#37DAE6, #2DD4DA, #5CE1E6, #20D4DA) have ~2.0–2.1:1
+ * contrast ratio on white/light backgrounds — failing WCAG AA (which requires
+ * 4.5:1 for normal text, 3:1 for large text / UI components).
+ *
+ * HOW IT WORKS
+ * ------------
+ * The Customizer (customizer-colors.php) emits an inline <style id="workspaces-directory-custom-colors">
+ * that defines these CSS variables on :root and [data-color-mode*="dark"]:
+ *
+ *   --wd-brand-cyan        — accessible teal for light mode (default #0A7E84, ~4.6:1 on white)
+ *   --wd-brand-cyan-hover  — hover variant
+ *   --theme-palette-color-1 — Blocksy palette override (light: accessible, dark: vivid neon)
+ *   --theme-palette-color-2 — Blocksy palette hover override
+ *   --21c-rich-teal         — brand CSS variable override
+ *
+ * This file applies structural/selector rules that USE those variables. The actual
+ * color values are fully customizable in Appearance → Customize → Brand Cyan & Accessibility.
+ *
+ * DARK MODE
+ * ---------
+ * Blocksy sets data-color-mode="dark" on <html> via the Color Mode Switch extension.
+ * The inline style block restores vivid brand cyans under that selector, so neon
+ * is used on dark backgrounds (where it passes WCAG AA at ~9:1 on #111518).
+ *
+ * OS-level dark preference (prefers-color-scheme: dark) is also handled when
+ * Blocksy's default mode is set to "System".
+ */
+
+/* ============================================================
+   1. BLOCKSY PALETTE BLOCK CLASSES
+   .has-palette-color-1-color uses var(--theme-palette-color-1),
+   which is already overridden by the inline style from customizer-colors.php.
+   These !important rules are a specificity safety net.
+   ============================================================ */
+
+.has-palette-color-1-color {
+	color: var(--theme-palette-color-1) !important;
+}
+
+.has-palette-color-2-color {
+	color: var(--theme-palette-color-2) !important;
+}
+
+/* Background palette classes — no override needed; backgrounds don't require
+   the same contrast ratio, and the vivid cyan on dark text passes. */
+
+/* ============================================================
+   2. GUTENBERG THEME.JSON PALETTE — .has-rich-teal-color
+   WordPress generates this from theme.json: color #20D4DA.
+   The inline style already handles this, but !important here
+   ensures no plugin/block stylesheet can override it.
+   ============================================================ */
+
+.has-rich-teal-color {
+	color: var(--wd-brand-cyan) !important;
+}
+
+/* Background version is fine; keep vivid (Customizer inline handles the var) */
+.has-rich-teal-background-color {
+	background-color: #20D4DA; /* vivid always — white/dark text on this passes */
+}
+
+/* ============================================================
+   3. LINKS — belt-and-suspenders
+   Blocksy's --theme-link-initial-color references --theme-palette-color-1,
+   which is already overridden in the inline style. These rules exist
+   in case any hardcoded link color survives the variable chain.
+   ============================================================ */
+
+/* No explicit link override needed — cascade handles it via --theme-palette-color-1 */
+
+/* ============================================================
+   4. FRS PLUGIN SCOPES
+   Plugin-specific classes where cyan text on a light background
+   could appear. Currently all known instances are on dark backgrounds
+   (dark navy, #121212, #1a1a1a) so they pass WCAG as-is.
+
+   If a new white-background context is added in a plugin, add the
+   override here using var(--wd-brand-cyan).
+   ============================================================ */
+
+/*
+ * Example pattern for future use:
+ *
+ * .some-plugin-class__cyan-text-on-white {
+ *     color: var(--wd-brand-cyan) !important;
+ * }
+ */

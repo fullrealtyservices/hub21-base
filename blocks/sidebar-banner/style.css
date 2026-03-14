@@ -1,0 +1,64 @@
+/* Sidebar Header Banner - Reset block and widget wrappers */
+.wp-block-hub21-base-sidebar-banner {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.sidebar-header-banner {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+
+.sidebar-header-banner-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 75%;
+    display: block;
+}
+
+.sidebar-header-banner-tint {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: #5CE1E6 !important;
+    mix-blend-mode: color;
+    opacity: 0.4;
+}
+
+.sidebar-header-banner-glass {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.sidebar-header-banner-content {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start;
+    padding: 0 1rem;
+}
+
+.sidebar-header-banner-heading,
+h2.sidebar-header-banner-heading {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Hubolt Sans', 'Hubolt Sans Expanded', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 18px !important;
+    font-weight: 700;
+    color: #ffffff !important;
+    text-align: left;
+    line-height: 1.1 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
