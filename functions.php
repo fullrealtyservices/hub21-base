@@ -131,6 +131,7 @@ require_once HUB21_THEME_PATH . '/includes/customizer-colors.php';
 require_once HUB21_THEME_PATH . '/includes/customizer-layout.php';
 require_once HUB21_THEME_PATH . '/includes/sidebar-state-metabox.php';
 require_once HUB21_THEME_PATH . '/includes/sidebar-insights-slider.php';
+require_once HUB21_THEME_PATH . '/includes/buddypress-compat.php';
 
 /**
  * ============================================================================
