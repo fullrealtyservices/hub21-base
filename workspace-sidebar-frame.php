@@ -283,24 +283,17 @@ body.sidebar-offcanvas.single-tutor_assignments .site-main {
 }
 
 /* Fix sidebar avatar size - prevent CSS bleed */
-.workspace-sidebar-frame .rounded-full img {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 42px;
-    max-height: 42px;
-    object-fit: cover;
-}
-
-.workspace-sidebar-frame .w-\[42px\] {
+.workspace-sidebar-frame .ws-avatar {
     width: 42px !important;
+    height: 42px !important;
     min-width: 42px;
     max-width: 42px;
 }
 
-.workspace-sidebar-frame .h-\[42px\] {
-    height: 42px !important;
-    min-height: 42px;
-    max-height: 42px;
+.workspace-sidebar-frame .ws-avatar-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
 }
 
 body.has-workspace-sidebar .site-main {
@@ -398,24 +391,17 @@ body.has-workspace-sidebar.hide-titlebar .site-main {
 }
 
 /* Fix sidebar avatar size in offcanvas - prevent CSS bleed */
-#workspace-sidebar-panel .rounded-full img {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 42px;
-    max-height: 42px;
-    object-fit: cover;
-}
-
-#workspace-sidebar-panel .w-\[42px\] {
+#workspace-sidebar-panel .ws-avatar {
     width: 42px !important;
+    height: 42px !important;
     min-width: 42px;
     max-width: 42px;
 }
 
-#workspace-sidebar-panel .h-\[42px\] {
-    height: 42px !important;
-    min-height: 42px;
-    max-height: 42px;
+#workspace-sidebar-panel .ws-avatar-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
 }
 
 /* Mobile admin bar is taller (46px) below 783px */

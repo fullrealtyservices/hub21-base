@@ -62,14 +62,14 @@ $workspace = get_queried_object();
         } else {
             // Default: Show workspace description and grid of objects
             ?>
-            <div class="workspace-header mb-8">
-                <h1 class="text-3xl font-bold text-gray-900 mb-2"><?php echo esc_html($workspace->name); ?></h1>
+            <div class="workspace-header">
+                <h1 class="ws-archive-title"><?php echo esc_html($workspace->name); ?></h1>
                 <?php if ($workspace->description) : ?>
-                    <p class="text-gray-600"><?php echo esc_html($workspace->description); ?></p>
+                    <p class="ws-archive-description"><?php echo esc_html($workspace->description); ?></p>
                 <?php endif; ?>
             </div>
 
-            <div class="workspace-objects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="workspace-objects-grid">
                 <?php
                 $objects = get_posts(array(
                     'post_type'      => 'workspace_object',
@@ -91,15 +91,15 @@ $workspace = get_queried_object();
                         setup_postdata($post);
                         $icon = get_post_meta($post->ID, '_object_icon', true) ?: 'layout-dashboard';
                         ?>
-                        <a href="<?php the_permalink(); ?>" class="workspace-object-card block p-6 bg-white rounded-lg border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
-                                    <span class="text-blue-600" data-lucide="<?php echo esc_attr($icon); ?>"></span>
+                        <a href="<?php the_permalink(); ?>" class="workspace-object-card">
+                            <div class="ws-card-inner">
+                                <div class="ws-card-icon">
+                                    <span data-lucide="<?php echo esc_attr($icon); ?>"></span>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900"><?php the_title(); ?></h3>
+                                    <h3 class="ws-card-title"><?php the_title(); ?></h3>
                                     <?php if (has_excerpt()) : ?>
-                                        <p class="text-sm text-gray-500"><?php echo get_the_excerpt(); ?></p>
+                                        <p class="ws-card-excerpt"><?php echo get_the_excerpt(); ?></p>
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -109,7 +109,7 @@ $workspace = get_queried_object();
                     wp_reset_postdata();
                 else :
                     ?>
-                    <p class="text-gray-500 col-span-full">No objects in this workspace yet.</p>
+                    <p class="ws-empty-message">No objects in this workspace yet.</p>
                     <?php
                 endif;
                 ?>

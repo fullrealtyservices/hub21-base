@@ -378,3 +378,584 @@ Text Domain: hub21-base
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================================
+   Scrollbar Hide Utility (replaces Tailwind scrollbar-hide)
+   ========================================================================== */
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* ==========================================================================
+   Workspace Sidebar Layout
+   ========================================================================== */
+
+.ws-sidebar-root {
+    display: flex;
+    flex-direction: column;
+}
+
+.ws-sidebar-scroll {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.ws-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: 1rem;
+}
+
+.ws-sidebar-bottom {
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   Navigation Links
+   ========================================================================== */
+
+.frs-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+    font-family: 'Mona Sans', sans-serif;
+    font-weight: 400;
+    border-radius: 4px;
+    margin: 1px 8px;
+}
+
+.frs-nav-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+}
+
+.frs-nav-link.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: white !important;
+    font-weight: 500;
+}
+
+.frs-nav-sublink {
+    padding-left: 2rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.frs-nav-sublink:hover {
+    color: white;
+}
+
+.ws-nav-message {
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================================================
+   Instructor Dropdown
+   ========================================================================== */
+
+.ws-instructor-trigger {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.ws-instructor-label {
+    flex: 1;
+}
+
+.ws-instructor-chevron {
+    padding: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s ease;
+}
+
+.ws-instructor-chevron:hover {
+    color: white;
+}
+
+.instructor-dropdown-wrapper {
+    cursor: pointer;
+}
+
+.instructor-dropdown-wrapper:hover .frs-nav-link {
+    color: white !important;
+}
+
+/* ==========================================================================
+   Section Headers (Accordion)
+   ========================================================================== */
+
+.frs-section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 16px 8px;
+    cursor: pointer;
+    user-select: none;
+    background: none !important;
+    background-color: transparent !important;
+}
+
+.frs-section-header:hover .frs-section-title {
+    color: rgba(55, 218, 230, 0.85);
+}
+
+.frs-section-header:hover .frs-section-line {
+    background: rgba(55, 218, 230, 0.25);
+}
+
+.frs-section-header:hover .frs-section-chevron {
+    color: rgba(55, 218, 230, 0.7);
+}
+
+.frs-section-title {
+    font-family: 'Hubot Sans', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(55, 218, 230, 0.55);
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.frs-section-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(55, 218, 230, 0.12);
+}
+
+.frs-section-chevron {
+    flex-shrink: 0;
+    color: rgba(55, 218, 230, 0.35);
+    transition: transform 0.25s ease, color 0.2s ease;
+}
+
+.frs-section-header.is-open .frs-section-title {
+    color: rgba(55, 218, 230, 0.7);
+}
+
+.frs-section-header.is-open .frs-section-chevron {
+    transform: rotate(0deg);
+    color: rgba(55, 218, 230, 0.55);
+}
+
+.frs-section-header:not(.is-open) .frs-section-chevron {
+    transform: rotate(-90deg);
+}
+
+/* ==========================================================================
+   Profile Completion Widget
+   ========================================================================== */
+
+.workspace-profile-completion {
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-completion-content {
+    position: relative;
+    padding: 0.75rem 1rem;
+}
+
+.ws-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ws-glass-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.ws-profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.ws-profile-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.ws-profile-percentage-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ws-profile-percentage {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.ws-progress-track {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 9999px;
+    height: 0.5rem;
+}
+
+.ws-progress-bar {
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: white;
+}
+
+.ws-setup-button {
+    display: block;
+    margin-top: 0.75rem;
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border: 0;
+    border-radius: 5px;
+    padding: 0.5rem 0.75rem;
+    transition: background 0.2s ease;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.ws-setup-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   User Menu
+   ========================================================================== */
+
+.user-menu-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.user-menu-trigger {
+    position: relative;
+    width: 100%;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    border: 0;
+    text-align: left;
+    transition: background 0.2s ease;
+    font-family: inherit;
+}
+
+.user-menu-trigger:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.user-menu-trigger:focus {
+    outline: none;
+}
+
+.user-menu-trigger:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.3);
+    outline-offset: -2px;
+}
+
+.ws-avatar-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.ws-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 9999px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.ws-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ws-user-info {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+}
+
+.ws-user-name {
+    font-weight: 700;
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ws-user-title {
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.ws-chevron {
+    color: rgba(255, 255, 255, 0.7);
+    transition: transform 0.2s ease;
+}
+
+/* User Popup Menu */
+.user-popup-menu {
+    position: fixed;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    background: var(--wd-user-popup-bg, #1a1f3c);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 288px;
+    z-index: 100;
+    animation: slideUp 0.15s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.user-popup-menu a {
+    text-decoration: none;
+}
+
+.user-popup-menu a:hover {
+    text-decoration: none;
+}
+
+.user-menu-nav {
+    padding: 0.5rem 0;
+}
+
+.ws-menu-section {
+    padding: 0.5rem 0;
+}
+
+.ws-menu-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ws-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.ws-menu-link:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   Sidebar Header Widget
+   ========================================================================== */
+
+.workspace-sidebar-header-widget {
+    width: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.workspace-sidebar-header-widget .widget {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.workspace-sidebar-header-widget .widget > * {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.workspace-sidebar-header-widget .wp-block-cover {
+    min-height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+.workspace-sidebar-header-widget .wp-block-cover__inner-container {
+    padding: 1rem;
+}
+
+/* ==========================================================================
+   Workspace Archive (taxonomy-workspace.php)
+   ========================================================================== */
+
+.workspace-header {
+    margin-bottom: 2rem;
+}
+
+.ws-archive-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.ws-archive-description {
+    color: #4b5563;
+}
+
+.workspace-objects-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .workspace-objects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .workspace-objects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.workspace-object-card {
+    display: block;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    text-decoration: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.workspace-object-card:hover {
+    border-color: var(--wd-sidebar-accent, #2563eb);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.ws-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ws-card-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background: #dbeafe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ws-card-icon span {
+    color: #2563eb;
+}
+
+.ws-card-title {
+    font-weight: 600;
+    color: #111827;
+}
+
+.ws-card-excerpt {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+.ws-empty-message {
+    color: #6b7280;
+    grid-column: 1 / -1;
+}
+
+/* ==========================================================================
+   View Transitions
+   ========================================================================== */
+
+@supports (view-transition-name: none) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 0.3s;
+    }
+
+    ::view-transition-old(root) {
+        animation-name: fade-out;
+    }
+
+    ::view-transition-new(root) {
+        animation-name: fade-in;
+    }
+
+    @keyframes fade-out {
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+    }
+}
